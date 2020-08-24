@@ -60,8 +60,8 @@ public class FakePersonDataAccessService implements PersonDAO{
     @Override
     public List<Person> updatePerson(Person person,String chance) {
         for (int i=0;i<DB.size();i++){
-          if(DB.get(i).equals(person.getName())){
-             //DB.set(i,chance);
+          if(DB.get(i).getName().equals(person.getName())){
+              DB.get(i).setName(chance);
 
           }
 
