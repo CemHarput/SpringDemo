@@ -14,13 +14,17 @@ public interface PersonDAO {
 
     }
     List<Person> selectAllPeople();
-    List<Person> filter();
-    default void updatePerson(Person person){
+    List<Person> filter(String name);
+    List<Person> filterBySchool(String School);
+    List<Person> filterByGrade(double grade);
+    List<Person> updatePerson(Person person,String chance);
 
-    }
+
     default void deletePerson(Person person){
 
     }
+
+
 
 
 

@@ -24,7 +24,15 @@ public class PersonService {
         return personDAO.selectAllPeople();
     }
 
-    public List<Person> filter(){
-        return personDAO.filter();
+    public List<Person> filter(String name){
+        return personDAO.filter(name);
     }
+
+    public List<Person> filterBySchool(String school) {
+        return personDAO.filterBySchool(school);
+    }
+    public List<Person> filterByGrade(double grade) {
+        return personDAO.filterByGrade(grade);
+    }
+
 }

@@ -27,9 +27,21 @@ public class PersonController {
         return personService.getAllPeople();
 
     }
-    @GetMapping("/filter")
-    public List<Person> filter(){
-        return personService.filter();
+    @GetMapping("/filter/{name}")
+    public List<Person> filter(@PathVariable String name){
+
+        return personService.filter(name);
+    }
+    @GetMapping("/filter/{School}")
+    public List<Person> filterBySchool(@PathVariable String School){
+
+        return personService.filterBySchool(School);
+    }
+
+    @GetMapping("/filter/{grade}")
+    public List<Person> filterByGrade(@PathVariable double grade){
+
+        return personService.filterByGrade(grade);
     }
 
 }
