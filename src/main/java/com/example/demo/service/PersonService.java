@@ -2,6 +2,7 @@ package com.example.demo.service;
 
 import com.example.demo.dao.PersonDAO;
 import com.example.demo.model.Person;
+import com.example.demo.repo.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -9,12 +10,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonService {
-    private final PersonDAO personDAO;
+public class PersonService implements IPersonService{
+
+    private  PersonDAO personDAO;
+    private PersonRepo personRepo;
 
     @Autowired
-    public PersonService(@Qualifier("fakeDao") PersonDAO personDAO) {
+    public PersonService(@Qualifier("fakeDao") PersonDAO personDAO ,PersonRepo personRepo) {
         this.personDAO = personDAO;
+        this.personRepo= personRepo;
     }
     public int addPerson(Person person){
         return personDAO.insertPerson(person);
@@ -31,8 +35,9 @@ public class PersonService {
     public List<Person> filterBySchool(String school) {
         return personDAO.filterBySchool(school);
     }
-    public List<Person> filterByGrade(double grade) {
-        return personDAO.filterByGrade(grade);
+    public Person filterByGrade(double grade) {
+
+        return personRepo.findFirstByGrade(grade);
     }
 
 }

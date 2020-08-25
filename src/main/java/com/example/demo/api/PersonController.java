@@ -39,7 +39,7 @@ public class PersonController {
     }
 
     @GetMapping("/filter/{grade}")
-    public List<Person> filterByGrade(@PathVariable double grade){
+    public Person filterByGrade(@PathVariable double grade){
 
         return personService.filterByGrade(grade);
     }
