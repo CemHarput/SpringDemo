@@ -26,7 +26,9 @@ public class Person {
     @Column(nullable = false)
     private double grade;
 
-    public Person(@JsonProperty("id")  UUID id,@JsonProperty("name")  String name,@JsonProperty("school")  String school,@JsonProperty("grade")  double grade) {
+
+
+    public Person(@JsonProperty("id")  UUID id, @JsonProperty("name")  String name, @JsonProperty("school")  String school, @JsonProperty("grade")  double grade) {
         this.id = id;
         this.name = name;
         this.school = school;
